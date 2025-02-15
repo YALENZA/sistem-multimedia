@@ -1,0 +1,72 @@
+*, html{
+    margin: 0;
+    padding: 0;
+}
+
+.kata1 {
+    background-color: aqua;
+    height: 100vh;
+}
+.ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.li1 {
+    list-style-type: none;
+    padding: 10px;
+    margin: 5px;
+    font-size: 30px;
+    animation: kata1 5s infinite;
+}
+.li2 {
+    list-style-type: none;
+    padding: 10px;
+    margin: 5px;
+    font-size: 30px;
+    animation: kata2 5s infinite;
+    translate: 0 0;
+}.li3 {
+    list-style-type: none;
+    padding: 10px;
+    margin: 5px;
+    font-size: 30px;
+    animation: kata3 5s infinite;
+}
+.li4 {
+    list-style-type: none;
+    padding: 10px;
+    margin: 5px;
+    font-size: 30px;
+    scale: 1 1;
+    animation: kata4 5s infinite;
+}
+.li5 {
+    list-style-type: none;
+    padding: 10px;
+    margin: 5px;
+    font-size: 30px;
+    animation: kata5 5s infinite;
+    animation-delay: 2s;
+    animation-direction: alternate;
+    position: relative;
+}
+@keyframes kata1{
+    50% {transform: rotate(180deg);}
+}
+@keyframes kata2{
+    50% {translate: -30px 50px ;}
+}
+@keyframes kata3 {
+    50% {text-shadow: 10px 20px red;}
+}
+@keyframes kata4 {
+    50% {scale: 2 4;}
+}
+@keyframes kata5 {
+    0%   {background-color:red; left:0px; top:0px;}
+    25%  {background-color:yellow; left:200px; top:0px;}
+    50%  {background-color:blue; left:200px; top:200px;}
+    75%  {background-color:green; left:0px; top:200px;}
+    100% {background-color:red; left:0px; top:0px;}
+}
