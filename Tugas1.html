@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <title>Athaya Nabil - Tugas 1</title>
+    <style>
+
+      .category-section {
+        margin-bottom: 40px;
+        background-color: var(--background-color);
+        border-radius: var(--border-radius);
+        padding: 20px;
+        box-shadow: var(--box-shadow);
+      }
+
+      .category-title {
+        font-size: 1.8rem;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--accent-color);
+        display: flex;
+        align-items: center;
+      }
+
+      .category-title i {
+        margin-right: 10px;
+        color: var(--accent-color);
+      }
+
+      /* Two column layout for fonts */
+      .font-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+      }
+
+      .font-item {
+        background-color: var(--light-text);
+        border-radius: var(--border-radius);
+        padding: 15px;
+        box-shadow: var(--box-shadow);
+        transition: var(--transition);
+      }
+
+      .font-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .font-name {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--primary-color);
+      }
+
+      /* Three column layout for images */
+      .image-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .image-item {
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--box-shadow);
+        transition: var(--transition);
+      }
+
+      .image-item:hover {
+        transform: scale(1.03);
+      }
+
+      .image-item img {
+        width: 100%;
+        display: block;
+      }
+
+      .image-caption {
+        padding: 10px;
+        background-color: var(--light-text);
+        color: var(--text-color);
+      }
+
+      /* Single column for audio */
+      .audio-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .audio-item {
+        display: flex;
+        align-items: center;
+        background-color: var(--light-text);
+        border-radius: var(--border-radius);
+        padding: 15px;
+        box-shadow: var(--box-shadow);
+      }
+
+      .audio-icon {
+        font-size: 24px;
+        color: var(--accent-color);
+        margin-right: 15px;
+      }
+
+      .audio-details {
+        flex-grow: 1;
+      }
+
+      /* Two column layout for videos with larger thumbnails */
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+      }
+
+      .video-item {
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--box-shadow);
+      }
+
+      .video-thumbnail {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .video-thumbnail::after {
+        content: "\f144";
+        font-family: "Font Awesome 5 Free";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 50px;
+        color: rgba(255, 255, 255, 0.8);
+        opacity: 0.8;
+        transition: var(--transition);
+      }
+
+      .video-item:hover .video-thumbnail::after {
+        opacity: 1;
+        color: var(--accent-color);
+      }
+
+      .video-thumbnail img {
+        width: 100%;
+        display: block;
+        transition: var(--transition);
+      }
+
+      .video-item:hover .video-thumbnail img {
+        transform: scale(1.05);
+      }
+
+      .video-caption {
+        padding: 15px;
+        background-color: var(--light-text);
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 992px) {
+        .font-grid, .image-grid, .animation-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .font-grid, .image-grid, .video-grid, .animation-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <a href="index.html" class="logo">Athaya</a>
+      <nav class="navbar">
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="index.html#about" class="nav-link">Tentang Saya</a>
+        <a href="index.html#tugas" class="nav-link">Tugas</a>
+        <a href="index.html#contact" class="nav-link">Kontak</a>
+        <div class="theme-toggle">
+          <i class="fas fa-sun"></i>
+          <i class="fas fa-moon"></i>
+          <div class="toggle-ball"></div>
+        </div>
+      </nav>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </header>
+
+    <div id="tugas" class="tugas">
+      <div class="container">
+        <div class="section-header">
+          <h2>TUGAS MULTIMEDIA</h2>
+          <div class="underline"></div>
+        </div>
+
+        <!-- Font Section with 3-column grid -->
+        <div class="category-section">
+          <h3 class="category-title"><i class="fas fa-font"></i> 1. Font</h3>
+          <div class="font-grid">
+            <div class="font-item">
+              <div class="font-name">BODONI</div>
+              <p style="font-family: 'Bodoni Moda SC', serif;">Laporan UTS Sistem Multimedia</p>
+            </div>
+            <div class="font-item">
+              <div class="font-name">COMIC SANS MS</div>
+              <p style="font-family: 'Comic Neue', cursive;;">Laporan UTS Sistem Multimedia</p>
+            </div>
+            <div class="font-item">
+              <div class="font-name">CAMBRIA</div>
+              <p style="font-family: 'Cambria', serif;">Laporan UTS Sistem Multimedia</p>
+            </div>
+            <div class="font-item">
+              <div class="font-name">Courier New</div>
+              <p style="font-family: 'Courier New', monospace;">Laporan UTS Sistem Multimedia</p>
+            </div>
+            <div class="font-item">
+              <div class="font-name">CALIBRI</div>
+              <p style="font-family: 'Calibri', sans-serif;">Laporan UTS Sistem Multimedia</p>
+            </div>
+            <div class="font-item">
+              <div class="font-name">ARIAL</div>
+              <p style="font-family: 'Arial', sans-serif;">Laporan UTS Sistem Multimedia</p>
+            </div>
+            <div class="font-item">
+              <div class="font-name">TIMES NEW ROMAN</div>
+              <p style="font-family: 'Times New Roman', serif;">Laporan UTS Sistem Multimedia</p>
+            </div>
+            <div class="font-item">
+              <div class="font-name">HELVETICA</div>
+              <p style="font-family: 'Helvetica', sans-serif;">Laporan UTS Sistem Multimedia</p>
+            </div>
+            <div class="font-item">
+              <div class="font-name">GARAMOND</div>
+              <p style="font-family: 'EB Garamond', serif;">Laporan UTS Sistem Multimedia</p>
+            </div>
+            <div class="font-item">
+              <div class="font-name">BRUSH SCRIPT MT</div>
+              <p style="font-family: 'Bad Script', cursive;">Laporan UTS Sistem Multimedia</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Images Section with 3-column grid -->
+        <div class="category-section">
+          <h3 class="category-title"><i class="fas fa-image"></i> 2. Gambar</h3>
+          <div class="image-grid">
+            <div class="image-item">
+              <img src="gambar/WEBP.webp" alt="" />
+              <div class="image-caption">a. WEBP</div>
+            </div>
+            <div class="image-item">
+              <img src="gambar/BMP.bmp" alt="" />
+              <div class="image-caption">b. BMP</div>
+            </div>
+            <div class="image-item">
+              <img src="gambar/JPG.jpg" alt="" />
+              <div class="image-caption">c. JPG</div>
+            </div>
+            <div class="image-item">
+              <img src="gambar/GIF.gif" alt="" />
+              <div class="image-caption">d. GIF</div>
+            </div>
+            <div class="image-item">
+              <img src="gambar/PNG.png" alt="" />
+              <div class="image-caption">e. PNG</div>
+            </div>
+            <div class="image-item">
+              <img src="gambar/TIFF.tiff" alt="" />
+              <div class="image-caption">
+                f. TIFF
+                <p>format tidak muncul dikarenakan tidak mendukung</p>
+              </div>
+            </div>
+            <div class="image-item">
+              <img src="gambar/RAW.raw" alt="" />
+              <div class="image-caption">g. RAW</div>
+            </div>
+            <div class="image-item">
+              <img src="gambar/GIF.svg" alt="" />
+              <div class="image-caption">h. SVG</div>
+            </div>
+            <div class="image-item">
+              <img src="gambar/AVIF.avif" alt="" />
+              <div class="image-caption">i. AVIF</div>
+            </div>
+            <div class="image-item">
+              <img src="gambar/HEIF.heif" alt="" />
+              <div class="image-caption">j. HEIF</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Audio Section with single column list -->
+        <div class="category-section">
+          <h3 class="category-title">
+            <i class="fas fa-volume-up"></i> 3. Audio
+          </h3>
+          <div class="audio-list">
+            <div class="audio-item">
+              <div class="audio-icon">
+                <i class="fas fa-music"></i>
+              </div>
+              <div class="audio-details">
+                <h4>
+                  <audio controls>
+                    <source src="audio/ジェヘナ(Gehenna) _ wotaku feat. 初音ミク(Hatsune Miku) - wotaku.mp3">
+                  </audio>
+                </h4>
+                <p>Format: MP3, Durasi: 4:06</p>
+              </div>
+            </div>
+            <div class="audio-item">
+              <div class="audio-icon">
+                <i class="fas fa-music"></i>
+              </div>
+              <div class="audio-details">
+                <h4>
+                  <audio controls>
+                    <source src="audio/ジェヘナ(Gehenna) _ wotaku feat. 初音ミク(Hatsune Miku) - wotaku.aac">
+                  </audio>
+                </h4>
+                <p>Format: AAC, Durasi: 4:06</p>
+              </div>
+            </div>
+            <div class="audio-item">
+              <div class="audio-icon">
+                <i class="fas fa-music"></i>
+              </div>
+              <div class="audio-details">
+                <h4>
+                  <audio controls>
+                    <source src="audio/ジェヘナ(Gehenna) _ wotaku feat. 初音ミク(Hatsune Miku) - wotaku.wav">
+                  </audio>
+                </h4>
+                <p>Format: WAV, Durasi: 4:06</p>
+              </div>
+            </div>
+            <div class="audio-item">
+              <div class="audio-icon">
+                <i class="fas fa-music"></i>
+              </div>
+              <div class="audio-details">
+                <h4>
+                  <audio controls>
+                    <source src="audio/ジェヘナ(Gehenna) _ wotaku feat. 初音ミク(Hatsune Miku) - wotaku.flac">
+                  </audio>
+                </h4>
+                <p>Format: FLAC, Durasi: 4:06</p>
+              </div>
+            </div>
+            <div class="audio-item">
+              <div class="audio-icon">
+                <i class="fas fa-music"></i>
+              </div>
+              <div class="audio-details">
+                <h4>
+                  <audio controls>
+                    <source src="audio/ジェヘナ(Gehenna) _ wotaku feat. 初音ミク(Hatsune Miku) - wotaku.m4a">
+                  </audio>
+                </h4>
+                <p>Format: ALAC, Durasi: 4:06</p>
+              </div>
+            </div>
+            <div class="audio-item">
+              <div class="audio-icon">
+                <i class="fas fa-music"></i>
+              </div>
+              <div class="audio-details">
+                <h4>
+                  <audio controls>
+                    <source src="audio/ジェヘナ(Gehenna) _ wotaku feat. 初音ミク(Hatsune Miku) - wotaku.ogg">
+                  </audio>
+                </h4>
+                <p>Format: OGG, Durasi: 4:06</p>
+              </div>
+            </div>
+            <div class="audio-item">
+              <div class="audio-icon">
+                <i class="fas fa-music"></i>
+              </div>
+              <div class="audio-details">
+                <h4>
+                  <audio controls>
+                    <source src="audio/ジェヘナ(Gehenna) _ wotaku feat. 初音ミク(Hatsune Miku) - wotaku.wma">
+                  </audio>
+                </h4>
+                <p>Format: WMA, Durasi: 4:06
+                  <P>Format ini tidak muncul, dikarenakan tidak mendukung</P>
+                </p>
+              </div>
+            </div>
+            <div class="audio-item">
+              <div class="audio-icon">
+                <i class="fas fa-music"></i>
+              </div>
+              <div class="audio-details">
+                <h4>
+                  <audio controls>
+                    <source src="audio/ジェヘナ(Gehenna) _ wotaku feat. 初音ミク(Hatsune Miku) - wotaku.aiff">
+                  </audio>
+                </h4>
+                <p>Format: AIFF, Durasi: 4:06
+                  <P>Format ini tidak muncul, dikarenakan tidak mendukung</P>
+                </p>
+              </div>
+            </div>
+            <div class="audio-item">
+              <div class="audio-icon">
+                <i class="fas fa-music"></i>
+              </div>
+              <div class="audio-details">
+                <h4>
+                  <audio controls>
+                    <source src="audio/ジェヘナ(Gehenna) - wotaku feat. 初音ミク(Hatsune Miku).dsf">
+                  </audio>
+                </h4>
+                <p>Format: DSD, Durasi: 4:06
+                  <P>Format ini tidak muncul, dikarenakan tidak mendukung</P>
+                </p>
+              </div>
+            </div>
+            <div class="audio-item">
+              <div class="audio-icon">
+                <i class="fas fa-music"></i>
+              </div>
+              <div class="audio-details">
+                <h4>
+                  <audio controls>
+                    <source src="audio/Cat saying Huh! (320).opus">
+                  </audio>
+                </h4>
+                <p>Format: OPUS, Durasi: 0:16</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Section with 2-column grid -->
+        <div class="category-section">
+          <h3 class="category-title"><i class="fas fa-video"></i> 4. Video</h3>
+          <div class="video-grid">
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <video controls width="100%">
+                  <source src="video/Cat saying Huh! (720p).mp4" />
+                </video>
+              </div>
+              <div class="video-caption">
+                <h4>Cat Saying HUH</h4>
+                <p>Format: MP4</p>
+              </div>
+            </div>
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <video controls width="100%">
+                  <source src="video/Cat saying Huh! (720p).mkv" />
+                </video>
+              </div>
+              <div class="video-caption">
+                <h4>Cat Saying HUH</h4>
+                <p>Format: MKV</p>
+              </div>
+            </div>
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <video controls width="100%">
+                  <source src="video/Cat saying Huh! (720p).wmv" />
+                </video>
+              </div>
+              <div class="video-caption">
+                <h4>Cat Saying HUH</h4>
+                <p>Format: WMV
+                  <p>Format video tidak muncul, dikarenakan web tidak mendukung</p>
+                </p>
+              </div>
+            </div>
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <video controls width="100%">
+                  <source src="video/Cat saying Huh! (720p).avi" />
+                </video>
+              </div>
+              <div class="video-caption">
+                <h4>Cat Saying HUH</h4>
+                <p>Format: AVIF
+                  <p>Format video tidak muncul, dikarenakan web tidak mendukung</p>
+                </p>
+              </div>
+            </div>
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <video controls width="100%">
+                  <source src="video/Cat saying Huh! (720p).mov" />
+                </video>
+              </div>
+              <div class="video-caption">
+                <h4>Cat Saying HUH</h4>
+                <p>Format: MOV
+                  <p>Format video muncul, namun videonya yang tidak mendukung</p>
+                </p>
+              </div>
+            </div>
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <video controls width="100%">
+                  <source src="video/Cat saying Huh! (720p).flv" />
+                </video>
+              </div>
+              <div class="video-caption">
+                <h4>Cat Saying HUH</h4>
+                <p>Format: FLV
+                  <p>Format video tidak muncul, dikarenakan web tidak mendukung</p>
+                </p>
+              </div>
+            </div>
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <video controls width="100%">
+                  <source src="video/Cat saying Huh! (720p).3gp" />
+                </video>
+              </div>
+              <div class="video-caption">
+                <h4>Cat Saying HUH</h4>
+                <p>Format: 3GP
+                  <p>Format video tidak muncul, dikarenakan web tidak mendukung</p>
+                </p>
+              </div>
+            </div>
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <video controls width="100%">
+                  <source src="video/Cat saying Huh! (720p).webm" />
+                </video>
+              </div>
+              <div class="video-caption">
+                <h4>Cat Saying HUH</h4>
+                <p>Format: WEBM</p>
+                </p>
+              </div>
+            </div>
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <video controls width="100%">
+                  <source src="video/Cat saying Huh! (720p).mpg" />
+                </video>
+              </div>
+              <div class="video-caption">
+                <h4>Cat Saying HUH</h4>
+                <p>Format: MPG/MPEG
+                  <p>Format video tidak muncul, dikarenakan web tidak mendukung</p>
+                </p>
+              </div>
+            </div>
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <video controls width="100%">
+                  <source src="video/Cat-saying-Huh_-_720p_.avchd.mts" />
+                </video>
+              </div>
+              <div class="video-caption">
+                <h4>Cat Saying HUH</h4>
+                <p>Format: AVCH
+                  <p>Format video tidak muncul, dikarenakan web tidak mendukung</p>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Animation Section with 3-column grid -->
+        <div class="category-section">
+          <h3 class="category-title"><i class="fas fa-film"></i> 5. Animasi</h3>
+          <div class="video-grid">
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <iframe width="100%" height="514" src="https://www.youtube.com/embed/OzUnqQk4eOg" title="2D Animation Reel 2022" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="video-caption">
+                <h4>Animasi 2D</h4>
+              </div>
+            </div>
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <iframe width="100%" height="514" src="https://www.youtube.com/embed/ZgZccxuj2RY" title="FLOW - Official US Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="video-caption">
+                <h4>Animasi 3D</h4>
+              </div>
+            </div>
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <iframe width="100%" height="514" src="https://www.youtube.com/embed/PODYTzZ0jL4" title="The Skater (a Stop Motion animation)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="video-caption">
+                <h4>Stop Motion Animatiom</h4>
+                </p>
+              </div>
+            </div>
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <iframe width="100%" height="514" src="https://www.youtube.com/embed/ndrnJiEFEzo" title="Record of Ragnarok | Official Trailer 2 | Netflix" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="video-caption">
+                <h4>Aniamsi Jepang/h4>
+              </div>
+            </div>
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <iframe width="100%" height="514" src="https://www.youtube.com/embed/llgHODE_PnA" title="Grocery Store Enchanter | Cel Animation Short Film | 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="video-caption">
+                <h4>Animasi Sel</h4>
+              </div>
+            </div>
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <iframe width="100%" height="514" src="https://www.youtube.com/embed/vxVZn86z1Sc" title="PEMBUATAN ANIMASI 2D “BIAK” DENGAN TEKNIK FRAME BY FRAME" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="video-caption">
+                <h4>Animasi Frame</h4>
+              </div>
+            </div>
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <iframe width="100%" height="514" src="https://www.youtube.com/embed/3b3PtD1Tg9Y" title="Sonic vs Shadow - Sprite Animation (Animated by Blue Nautic)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="video-caption">
+                <h4>Animasi Sprite</h4>
+              </div>
+            </div>
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <iframe width="100%" height="514" src="https://www.youtube.com/embed/_xRirUhQc6Y" title="animasi path" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="video-caption">
+                <h4>Animasi Path</h4>
+              </div>
+            </div>
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <iframe width="100%" height="514" src="https://www.youtube.com/embed/4-mkF0zRCvs" title="CLAY FIGHT 24fps (clay animation)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="video-caption">
+                <h4>Animasi Clay</h4>
+              </div>
+            </div>
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <iframe width="100%" height="514" src="https://www.youtube.com/embed/X2DUpDxFJyg" title="Gravity Falls - Opening Theme Song - HD" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="video-caption">
+                <h4>Animasi Karakter</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PDF Report Section -->
+        <div class="category-section">
+          <p class="l">LAPORAN UTS</p>
+          <iframe
+            class="pdf"
+            src="img/UTS Sistem Multimedia Athaya Nabil.pdf"
+            width="100%"
+            height="500"
+            frameborder="0"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
